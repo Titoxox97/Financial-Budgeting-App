@@ -41,28 +41,52 @@ function getAndPost() {
     .transaction("transaction", "readwrite")
     .objectStore("transaction");
 
-  let result = action.get();
-  result.onsuccess = function () {
-    console.log(result);
+  let data = action.getAll();
+  data.onsuccess = function () {
+    console.log(data);
     console.log("success");
+
+    fetch("/api/transaction/bulk", {
+      method: "POST",
+      body: JSON.stringify(data.result),
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((data) => {
+        return data.json();
+      })
+      .then((data) => {
+        fetchData();
+        let action = db
+          .transaction("transaction", "readwrite")
+          .objectStore("transaction");
+
+        let data = action.clear();
+      });
   };
+
   result.onerror = function () {
     console.log("error");
   };
 }
 
-fetch("/api/transaction")
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    // save db data on global variable
-    transactions = data;
+function fetchData() {
+  fetch("/api/transaction")
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      // save db data on global variable
+      transactions = data;
 
-    populateTotal();
-    populateTable();
-    populateChart();
-  });
+      populateTotal();
+      populateTable();
+      populateChart();
+    });
+}
+fetchData();
 
 function populateTotal() {
   // reduce transaction amounts to a single total value
