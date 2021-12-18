@@ -3,15 +3,14 @@ const DATA_CACHE_NAME = "data-cache-v2";
 
 const FILES_TO_CACHE = [
   "/",
-  "/index.html",
-  "/favicon.ico",
-  "/manifest.json",
-  "/app.js",
-  "/assets/css/style.css",
-  "/assets/images/icons/icon-72x72.png",
-  "/assets/images/icons/icon-96x96.png",
-  "/assets/images/icons/icon-128x128.png",
-  "/assets/images/icons/icon-144x144.png",
+  "./index.html",
+  //   "./manifest.json",
+  "./css/styles.css",
+  "./js/index.js",
+  "./icons/icon-72x72.png",
+  "./icons/icon-96x96.png",
+  "./icons/icon-128x128.png",
+  "./icons/icon-144x144.png",
 ];
 
 // Install the service worker

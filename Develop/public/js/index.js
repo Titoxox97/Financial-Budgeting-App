@@ -63,7 +63,7 @@ function getAndPost() {
           .transaction("transaction", "readwrite")
           .objectStore("transaction");
 
-        let data = action.clear();
+        action.clear();
       });
   };
 
