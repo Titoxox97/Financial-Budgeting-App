@@ -11,6 +11,7 @@ const FILES_TO_CACHE = [
   "./icons/icon-96x96.png",
   "./icons/icon-128x128.png",
   "./icons/icon-144x144.png",
+  "./icons/icon-192x192.png",
 ];
 
 // Install the service worker
