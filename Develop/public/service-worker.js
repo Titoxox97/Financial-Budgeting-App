@@ -4,7 +4,7 @@ const DATA_CACHE_NAME = "data-cache-v2";
 const FILES_TO_CACHE = [
   "/",
   "./index.html",
-  //   "./manifest.json",
+  "./manifest.json",
   "./css/styles.css",
   "./js/index.js",
   "./icons/icon-72x72.png",
